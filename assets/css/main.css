@@ -1465,3 +1465,25 @@ section,
 }
 */
 
+.banner {
+  position: relative;
+  left: 0;
+  top: 50%;
+  width: 300px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.programador {
+  animation: typing 2s steps(40) infinite;
+}
