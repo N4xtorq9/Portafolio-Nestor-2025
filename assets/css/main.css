@@ -314,7 +314,7 @@ h6 {
 .navmenu a:hover .navicon,
 .navmenu .active .navicon,
 .navmenu .active:focus .navicon {
-  color: var(--accent-color);
+  color: #ffffff;
 }
 
 .navmenu .active .toggle-dropdown,
@@ -565,10 +565,10 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 70%);
+  background: color-mix(in srgb, var(--background-color), transparent 90%);
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 7;
 }
 
 .hero .container {
