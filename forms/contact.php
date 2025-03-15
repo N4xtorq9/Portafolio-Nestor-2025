@@ -11,6 +11,7 @@
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
+    $subject = $_POST['subject'];
 
     // Aquí puedes procesar los datos, como enviar un correo electrónico
     $to = "n4xtor@gmail.com";
