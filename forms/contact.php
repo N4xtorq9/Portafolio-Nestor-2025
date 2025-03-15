@@ -7,7 +7,7 @@
   */
 
   // Replace contact@example.com with your real receiving email address
-  <?php
+
 // Verifica que la solicitud sea de tipo POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recupera los datos del formulario
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['message']); // Sanitiza el mensaje
 
     // Configura el correo electrónico
-    $to = "tucorreo@example.com"; // Reemplaza con tu dirección de correo
+    $to = "n4xtor@gmail.com"; // Reemplaza con tu dirección de correo
     $email_subject = "Nuevo mensaje de contacto: $subject";
     $email_body = "Has recibido un nuevo mensaje de contacto.\n\n".
                   "Nombre: $name\n".
@@ -42,5 +42,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     http_response_code(405);
     echo json_encode(["status" => "error", "message" => "Método no permitido."]);
 }
-?>
 ?>
