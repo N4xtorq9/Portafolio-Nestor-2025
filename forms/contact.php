@@ -10,13 +10,13 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $message = $_POST['message'];
     $subject = $_POST['subject'];
+    $message = $_POST['message'];
 
     // Aquí puedes procesar los datos, como enviar un correo electrónico
     $to = "n4xtor@gmail.com";
     $subject = "Nuevo mensaje de contacto";
-    $body = "Nombre: $name\nEmail: $email\nMensaje: $message";
+    $body = "Nombre: $name\nEmail: $subject\nAsunto: $email\nMensaje: $message";
     mail($to, $subject, $body);
 
     echo "Mensaje enviado con éxito.";
