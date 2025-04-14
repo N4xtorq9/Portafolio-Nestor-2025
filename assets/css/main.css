@@ -1273,7 +1273,7 @@ section,
   display: flex;           /* Asegura que las tarjetas estén en una sola línea */
   overflow-x: auto;       /* Permite el desplazamiento horizontal */
   padding: 20px;          /* Espacio alrededor del contenido */
-  gap: 40px;              /* Espacio entre tarjetas */
+  gap: 20px;              /* Espacio entre tarjetas */
   scroll-behavior: smooth;
 }
 
