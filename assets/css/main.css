@@ -1358,7 +1358,7 @@ section,
   --font-color: #000000;
   --font-color-sub: #000000;
   --bg-color: #fff;
-  --main-color: #323232;
+  --main-color: #000000;
   width: 200px;
   height: 254px;
   background: var(--bg-color);
