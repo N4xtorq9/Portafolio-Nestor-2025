@@ -229,11 +229,7 @@
 })();
 
 
-// File: assets/js/main.js
-// This script handles the contact form submission and displays appropriate messages.
-// It uses the Fetch API to send form data to a PHP script and handles the response.
-// Make sure to include this script in your HTML file after the form.
-// Ensure that the form has the class "php-email-form" and the action attribute points to
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".php-email-form");
   const loadingEl = form.querySelector(".loading");
@@ -243,7 +239,6 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Muestra el mensaje de cargando
     loadingEl.style.display = "block";
     errorEl.style.display = "none";
     sentEl.style.display = "none";
@@ -254,23 +249,22 @@ document.addEventListener("DOMContentLoaded", function () {
       method: "POST",
       body: formData
     })
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
       loadingEl.style.display = "none";
-
       if (data.status === "success") {
         sentEl.style.display = "block";
         form.reset();
       } else {
         errorEl.style.display = "block";
-        errorEl.innerHTML = data.message || "Ocurrió un error al enviar el mensaje.";
+        errorEl.innerText = data.message || "Hubo un problema al enviar el mensaje.";
       }
     })
-    .catch(error => {
+    .catch(err => {
       loadingEl.style.display = "none";
       errorEl.style.display = "block";
-      errorEl.innerHTML = "No se pudo enviar el mensaje. Intenta más tarde.";
-      console.error("Error en la solicitud:", error);
+      errorEl.innerText = "No se pudo enviar el mensaje. Intenta más tarde.";
+      console.error("Error al enviar:", err);
     });
   });
 });

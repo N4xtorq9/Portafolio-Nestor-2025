@@ -88,55 +88,60 @@ h6 {
 
 /* PHP Email Form Messages
 ------------------------------*/
-.php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
+.php-email-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
+.php-email-form .form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.php-email-form button[type="submit"] {
+  padding: 10px 30px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.php-email-form button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.php-email-form .loading,
+.php-email-form .error-message,
 .php-email-form .sent-message {
   display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
 }
 
 .php-email-form .loading {
-  display: none;
-  background: var(--surface-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
 }
 
-.php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--surface-color);
-  animation: php-email-form-loading 1s linear infinite;
+.php-email-form .error-message {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
 
-@keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.php-email-form .sent-message {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
 }
+
 
 /*--------------------------------------------------------------
 # Global Header
