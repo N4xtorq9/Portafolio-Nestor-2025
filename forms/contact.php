@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Configura el correo electrónico
     $to = "n4xtor@gmail.com"; // Reemplaza con tu dirección de correo
     $email_subject = "Nuevo mensaje de contacto: $subject";
-    $email_body = "Has recibido un nuevo mensaje de contacto.\n\n".
+    $email_body = "Has recibido un nuevo mensaje de contacto.\n".
                   "Nombre: $name\n".
                   "Correo: $email\n".
                   "Asunto: $subject\n".
-                  "Mensaje:\n$message";
+                  "Mensaje:$message\n";
 
     // Cabeceras del correo
     $headers = "From: $email\n";
