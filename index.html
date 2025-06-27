@@ -1312,48 +1312,7 @@
                 </div>
 
               </div>
-              <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".php-email-form");
-  const loadingEl = form.querySelector(".loading");
-  const errorEl = form.querySelector(".error-message");
-  const sentEl = form.querySelector(".sent-message");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    // Muestra el mensaje de cargando
-    loadingEl.style.display = "block";
-    errorEl.style.display = "none";
-    sentEl.style.display = "none";
-
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: "POST",
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      loadingEl.style.display = "none";
-
-      if (data.status === "success") {
-        sentEl.style.display = "block";
-        form.reset();
-      } else {
-        errorEl.style.display = "block";
-        errorEl.innerHTML = data.message || "Ocurrió un error al enviar el mensaje.";
-      }
-    })
-    .catch(error => {
-      loadingEl.style.display = "none";
-      errorEl.style.display = "block";
-      errorEl.innerHTML = "No se pudo enviar el mensaje. Intenta más tarde.";
-      console.error("Error en la solicitud:", error);
-    });
-  });
-});
-</script>
+              
             </form>
           </div><!-- End Contact Form -->
 
@@ -1402,6 +1361,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="js/bodymovin.js" type="text/javascript"></script>
+  
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
