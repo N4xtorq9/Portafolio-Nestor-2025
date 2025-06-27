@@ -229,7 +229,6 @@
 })();
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".php-email-form");
   const loadingEl = form.querySelector(".loading");
