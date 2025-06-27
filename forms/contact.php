@@ -1,45 +1,63 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
-
-  // Replace contact@example.com with your real receiving email address
-
 // Verifica que la solicitud sea de tipo POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recupera los datos del formulario
-    $name = htmlspecialchars($_POST['name']); // Sanitiza el nombre
-    $email = htmlspecialchars($_POST['email']); // Sanitiza el correo
-    $subject = htmlspecialchars($_POST['subject']); // Sanitiza el asunto
-    $message = htmlspecialchars($_POST['message']); // Sanitiza el mensaje
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // Configura el correo electrónico
-    $to = "n4xtor@gmail.com"; // Reemplaza con tu dirección de correo
-    $email_subject = "Nuevo mensaje de contacto: $subject";
-    $email_body = "Has recibido un nuevo mensaje de contacto.\n".
-                  "Nombre: $name\n".
-                  "Correo: $email\n".
-                  "Asunto: $subject\n".
-                  "Mensaje:$message\n";
+    // Recupera y sanitiza los datos del formulario
+    $name = htmlspecialchars(trim($_POST['name']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $subject = htmlspecialchars(trim($_POST['subject']));
+    $message = htmlspecialchars(trim($_POST['message']));
 
-    // Cabeceras del correo
-    $headers = "From: $email\n";
-    $headers .= "Reply-To: $email";
-
-    // Intenta enviar el correo
-    if (mail($to, $email_subject, $email_body, $headers)) {
-        // Respuesta de éxito (para AJAX o redirección)
-        echo json_encode(["status" => "success", "message" => "Tu mensaje fue enviado con éxito. Gracias!"]);
-    } else {
-        // Respuesta de error
-        echo json_encode(["status" => "error", "message" => "Hubo un problema al enviar el mensaje. Inténtalo de nuevo."]);
+    // Valida campos básicos
+    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Por favor, completa todos los campos."
+        ]);
+        exit;
     }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo json_encode([
+            "status" => "error",
+            "message" => "El correo proporcionado no es válido."
+        ]);
+        exit;
+    }
+
+    // Configura el correo
+    $to = "n4xtor@gmail.com"; // Cambia a tu correo real
+    $email_subject = "Nuevo mensaje de contacto: $subject";
+    $email_body = "Has recibido un nuevo mensaje de contacto.\n\n" .
+                  "Nombre: $name\n" .
+                  "Correo: $email\n" .
+                  "Asunto: $subject\n" .
+                  "Mensaje:\n$message\n";
+
+    // Cabeceras
+    $headers = "From: n4xtor@gmail.com\r\n"; // Cambia tudominio.com por el tuyo
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    // Envía el correo
+    if (mail($to, $email_subject, $email_body, $headers)) {
+        echo json_encode([
+            "status" => "success",
+            "message" => "Tu mensaje fue enviado con éxito. ¡Gracias!"
+        ]);
+    } else {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Hubo un problema al enviar el mensaje. Inténtalo de nuevo."
+        ]);
+    }
+
 } else {
-    // Si la solicitud no es POST, devuelve un error 405
+    // Método no permitido
     http_response_code(405);
-    echo json_encode(["status" => "error", "message" => "Método no permitido."]);
+    echo json_encode([
+        "status" => "error",
+        "message" => "Método no permitido."
+    ]);
 }
 ?>
