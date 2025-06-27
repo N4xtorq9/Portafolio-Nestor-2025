@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                   "Mensaje:\n$message\n";
 
     // Cabeceras
-    $headers = "From: n4xtor@gmail.com\r\n"; // Cambia tudominio.com por el tuyo
+    $headers = "From: no-reply@gmail.com\r\n"; // Cambia tudominio.com por el tuyo
     $headers .= "Reply-To: $email\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
