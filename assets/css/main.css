@@ -1662,6 +1662,7 @@ section,
   justify-content: center;
   padding: 2rem;
   animation: fadeIn 1s ease-in;
+  background-color: #ebebeb;
 }
 
 .content {
@@ -1691,20 +1692,6 @@ section,
   line-height: 1.5;
 }
 
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.6rem;
-  background-color: #27ae60;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #1e874b;
-}
-
 .img-container {
   flex: 1;
   min-width: 280px;
@@ -1713,7 +1700,7 @@ section,
 
 .img-container img {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   border-radius: 12px;
 }
 
