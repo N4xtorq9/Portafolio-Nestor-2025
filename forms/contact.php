@@ -1,4 +1,4 @@
-<?php
+
 <?php
 // Cambia esto por tu correo
 $to = "n4xtor@gmail.com";
