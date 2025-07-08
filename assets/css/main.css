@@ -1754,26 +1754,41 @@ section,
 
 
 
-/* Estilo del cursor */
+/* Estilo del contenedor del cursor SVG */
 .cursor {
-  width: 30px;
-  height: 30px;
-  border: 2px solid #00c853;
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: transform 0.15s ease-out;
   z-index: 9999;
-  background: rgba(0, 200, 83, 0.2);
-  box-shadow: 0 0 10px #00c853, 0 0 20px rgba(0, 200, 83, 0.5);
+  transition: transform 0.15s cubic-bezier(.22,1,.36,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Sin fondo ni borde, solo el SVG */
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
-/* Efecto de clic */
-.cursor.click {
-  transform: translate(-50%, -50%) scale(1.8);
-  background-color: rgba(0, 200, 83, 0.4);
-  transition: transform 0.1s ease-in;
+/* Animación al hacer clic */
+.cursor.click svg circle {
+  stroke: #00c853;
+  stroke-width: 4;
+  stroke-dasharray: 120;
+  stroke-dashoffset: 90;
+  animation: cursorClick 0.3s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes cursorClick {
+  0% { stroke-dashoffset: 90; }
+  50% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 90; }
+}
+
+body, html {
+  cursor: none !important;
 }
