@@ -1409,6 +1409,41 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
+  <!-- Cursor -->
+  <div class="cursor"></div>
+
+  <script>
+    const cursor = document.querySelector(".cursor");
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    document.addEventListener("mousemove", e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      currentX += (mouseX - currentX) * 0.1;
+      currentY += (mouseY - currentY) * 0.1;
+      cursor.style.transform = `translate(${currentX}px, ${currentY}px)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Animación al hacer clic
+    document.addEventListener("mousedown", () => {
+      cursor.classList.add("click");
+    });
+
+    document.addEventListener("mouseup", () => {
+      cursor.classList.remove("click");
+    });
+  </script>
+
+  <!-- Fin Cursor -->
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>

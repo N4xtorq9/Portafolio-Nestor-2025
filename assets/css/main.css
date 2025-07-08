@@ -1751,3 +1751,29 @@ section,
     max-width: 300px;
   }
 }
+
+
+
+/* Estilo del cursor */
+.cursor {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #00c853;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out;
+  z-index: 9999;
+  background: rgba(0, 200, 83, 0.2);
+  box-shadow: 0 0 10px #00c853, 0 0 20px rgba(0, 200, 83, 0.5);
+}
+
+/* Efecto de clic */
+.cursor.click {
+  transform: translate(-50%, -50%) scale(1.8);
+  background-color: rgba(0, 200, 83, 0.4);
+  transition: transform 0.1s ease-in;
+}
