@@ -1609,7 +1609,7 @@ section,
   justify-content: center;
   padding: 2rem;
   animation: fadeIn 1s ease-in;
-  background-image: img/video-backpage.webm;
+  background-color: #ebebeb;
 }
 
 .content {
