@@ -1612,15 +1612,6 @@ section,
   background-color: #ebebeb;
 }
 
-.background-video {
-  position: static;
-  top: 0; left: 0;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  z-index: -1;
-}
-
 .content {
   display: flex;
   flex-wrap: wrap;
