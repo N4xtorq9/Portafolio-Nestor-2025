@@ -141,7 +141,7 @@ h6 {
   background-color: transparent;
   color: rgb(255, 255, 255);
   font-weight: bold;
-  outline: 2px solid rgb(0, 122, 95);
+  outline: 2px solid #007a5f;
   transition: all ease-in-out 0.3s;
 }
 
@@ -1761,3 +1761,5 @@ body, html {
   height: 100%;
   border: 0;
 }
+
+
