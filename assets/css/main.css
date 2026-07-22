@@ -1739,7 +1739,7 @@ section,
 }
 
 body, html {
-  cursor: none !important;
+  cursor: auto;
 }
 
 
