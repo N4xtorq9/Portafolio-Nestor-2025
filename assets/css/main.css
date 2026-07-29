@@ -1056,6 +1056,7 @@ section,
   background-color: var(--surface-color);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
+  border-radius: 30px;
 }
 
 @media (max-width: 575px) {
@@ -1105,6 +1106,7 @@ section,
   height: 100%;
   padding: 30px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
 }
 
 @media (max-width: 575px) {
